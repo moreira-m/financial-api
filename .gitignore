@@ -1,3 +1,6 @@
 HELP.md
 target/
 !-Werror
+
+# Secret Environment Variables
+.env
