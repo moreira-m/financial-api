@@ -21,6 +21,6 @@ spring:
         format_sql: true
 
 pluggy:
- api-url: https://api.pluggy.api
+ api-url: https://api.pluggy.ai
  client-id: ${PLUGGY_CLIENT_ID}
  client-secret: ${PLUGGY_CLIENT_SECRET}
