@@ -24,3 +24,6 @@ pluggy:
  api-url: https://api.pluggy.ai
  client-id: ${PLUGGY_CLIENT_ID}
  client-secret: ${PLUGGY_CLIENT_SECRET}
+
+app:
+ allowed-origins: ${ALLOWED_ORIGINS}
