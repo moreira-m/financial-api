@@ -21,8 +21,9 @@ public class Account {
     @Column(nullable = false)
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String type;
+    private AccountType type;
 
     @Column(name = "pluggy_account_id", unique = true)
     private String pluggyAccountId;
