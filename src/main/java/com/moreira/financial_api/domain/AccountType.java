@@ -4,5 +4,7 @@ public enum AccountType {
     CHECKING,
     SAVINGS,
     CREDIT,
-    INVESTMENT
+    INVESTMENT,
+    BANK,          // Adicionado para suportar retorno da Pluggy
+    CREDIT_CARD    // Adicionado para suportar retorno da Pluggy
 }
