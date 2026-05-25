@@ -10,7 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Category {
     
     @Id
@@ -21,5 +20,20 @@ public class Category {
     private String name;
 
     @Column(nullable = false)
-    private String type;
+    private String color;
+
+    @Column(nullable = false)
+    @Builder.Default
+    private boolean includeInDashboard = true;
+
+    @Column(nullable = false)
+    @Builder.Default
+    private String type = "CUSTOM";
+
+    @PrePersist
+    protected void onCreate() {
+        if (this.type == null) {
+            this.type = "CUSTOM";
+        }
+    }
 }
