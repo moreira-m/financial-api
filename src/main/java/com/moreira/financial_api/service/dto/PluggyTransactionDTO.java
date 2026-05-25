@@ -7,6 +7,7 @@ public record PluggyTransactionDTO(
         String description,
         BigDecimal amount,
         String date,
-        String caregoryId,
+        String category,
+        String categoryId,
         String accountId
 ) {}

@@ -47,18 +47,22 @@ public class SyncService {
                 continue;
             }
 
-            //se nao existe, converte de dto para entidade e salva
-            Transaction newTransaction = new Transaction();
-            newTransaction.setPluggyTransactionId(dto.id());
-            newTransaction.setDescription(dto.description());
-            newTransaction.setAmount(dto.amount());
+            try {
+                Transaction newTransaction = new Transaction();
+                newTransaction.setPluggyTransactionId(dto.id());
+                newTransaction.setDescription(dto.description());
+                newTransaction.setAmount(dto.amount());
+                
+                //converte data no formato ISO
+                newTransaction.setDate(ZonedDateTime.parse(dto.date()).toLocalDate());
 
-            //converte data no formato ISO
-            newTransaction.setDate(ZonedDateTime.parse(dto.date()).toLocalDate());
+                newTransaction.setAccount(account);
 
-            newTransaction.setAccount(account);
-
-            transactionRepository.save(newTransaction);
+                transactionRepository.save(newTransaction);
+            } catch (Exception e) {
+                // Ignore unique constraint violation from parallel sync
+                System.out.println("Erro ao salvar transação: " + e.getMessage());
+            }
         }
     }
 }
